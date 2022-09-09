@@ -10,7 +10,7 @@ So this wrapper automatically add the `--color=auto` parameter to ls, grep and o
 # Use
 
 1. Download from [release](https://github.com/horizon86/winColorLs/releases/latest) and add to environment `PATH`.
-2. Set environment variable `LS_PATH` is the folder where the real ls.exe is located.
+2. Set environment variable `LSPATH` is the folder where the real ls.exe is located.
 
 # Compile
 
