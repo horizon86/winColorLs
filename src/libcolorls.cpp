@@ -18,7 +18,7 @@ LPTSTR getCmdlineAgr1(const LPTSTR cmdLine)
 
     if(p == end) return nullptr;
 
-    for(;p < end && *p == delim[0];p++);
+    for(p++;p < end && *p == delim[0];p++);
 
     if(p == end) return nullptr;
     return p;
@@ -57,6 +57,10 @@ __declspec(dllexport) int run(const LPTSTR CMD)
 #ifdef UNICODE
     dwFlags = CREATE_UNICODE_ENVIRONMENT;
 #endif
+
+
+    // _tprintf(TEXT("cmd %s\n"),cmd);
+    // _tprintf(TEXT("args %s\n"),arg1Pos);
     
     fSuccess = CreateProcess(
         nullptr,
@@ -72,7 +76,7 @@ __declspec(dllexport) int run(const LPTSTR CMD)
     if (! fSuccess)
     {
         DWORD errCode = GetLastError();
-        LPTSTR errBuf;
+        LPTSTR errBuf=nullptr;
         FormatMessage(
         FORMAT_MESSAGE_ALLOCATE_BUFFER | 
         FORMAT_MESSAGE_FROM_SYSTEM |

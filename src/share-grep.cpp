@@ -1,5 +1,5 @@
 #include "libcolorls.h"
-#define CMD TEXT("\\ls.exe")
+#define CMD TEXT("\\grep.exe")
 
 int main(int argc, char *argv[])
 {
